@@ -29,6 +29,7 @@ class TodoController extends Controller
 
     public function store(TodoRequest $request)
     {
+        dd($request);
         $inputs = $request->all();
 
         // https://yama-weblog.com/using-fill-method-to-be-a-simple-code/
@@ -63,7 +64,19 @@ class TodoController extends Controller
 
     public function delete($id) {
         $todo = $this->todo->find($id);
+        // dd($todo->getKeyName()); // return 'id' モデルのpkの名前を取得
+        // dd($todo->getKey()); // return idの番号 モデルのpkのvalueを取得
+        // $time = $todo->freshTimestamp();
+        // $date = $todo->fromDateTime($time);
+        // dd($time, $date);
+        // $any = Todo::where('id', 1)->withTrashed()->first();
+        // $arr = ['content' => '焼肉食べ放題'];
+        // $any->syncOriginalAttributes(array_keys($arr));
+        // dd($any);
         $todo->delete();
         return redirect()->route('todo.index');
+
+        // ソフトデリート
+        // https://readouble.com/laravel/6.x/ja/eloquent.html?header=%25E3%2582%25BD%25E3%2583%2595%25E3%2583%2588%25E3%2583%2587%25E3%2583%25AA%25E3%2583%25BC%25E3%2583%2588
     }
 }
