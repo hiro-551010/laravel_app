@@ -11,6 +11,7 @@ class Todo extends Model
     
     protected $table = 'todos';
 
+    // bladeのformのname属性を持ってくる
     protected $fillable = [
         'content'
     ];
@@ -60,6 +61,10 @@ classはクラス内で新たなクラスを継承できないので、classだ�
 venderとはいわば、みんなの教科書みたいなものなので、書き換えたり、書き加えたりしてはいけない。
 また、venderはgitignoreされているので、他の開発者がいた場合環境自体に問題が起こる可能性がある。
 
+bladeのメリット
+phpだとifやforeachを書く際、echoや{}、クオートなど書くことが多くなって,HTMLが見えにくくなる。
+基本的なAuth情報を保持してくれる。セキュリティ対策の一端になる。
 
+route()とは
 
 */

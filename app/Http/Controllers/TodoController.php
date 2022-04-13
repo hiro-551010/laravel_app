@@ -8,7 +8,9 @@ use App\Http\Requests\TodoRequest;
 
 class TodoController extends Controller
 {
-    //
+    private $todo;
+
+    // Todo $todo でインスタンス化完了 コンストラクターインジェクション
     public function __construct(Todo $todo)
     {
         $this->todo = $todo;
@@ -29,13 +31,12 @@ class TodoController extends Controller
 
     public function store(TodoRequest $request)
     {
-        dd($request);
         $inputs = $request->all();
-
         // https://yama-weblog.com/using-fill-method-to-be-a-simple-code/
+        
         $this->todo->fill($inputs);
         $this->todo->save();
-        return redirect()->route('todo.index');
+        return redirect()->route('todo.store');
     }
 
     public function show($id)

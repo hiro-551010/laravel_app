@@ -36,3 +36,5 @@ class TodoRequest extends FormRequest
         ];
     }
 }
+
+// バリデーションでエラーが起きた場合は起きたページにリダイレクトされる
